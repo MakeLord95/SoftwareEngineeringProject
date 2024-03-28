@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SEP2.W2.ButtonLocalization.Controller.ButtonLocalizationController">
+    <Button fx:id="buttonEN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickEN" text="English" textAlignment="CENTER">
+        <VBox.margin>
+            <Insets bottom="25.0" top="25.0" />
+        </VBox.margin>
+    </Button>
+    <Button fx:id="buttonFI" mnemonicParsing="false" onAction="#onClickFI" text="Finnish">
+        <VBox.margin>
+            <Insets bottom="25.0" />
+        </VBox.margin>
+    </Button>
+    <Button fx:id="buttonJP" mnemonicParsing="false" onAction="#onClickJP" text="Japanese">
+        <VBox.margin>
+            <Insets bottom="25.0" />
+        </VBox.margin>
+    </Button>
+   <Label fx:id="languageLabel">
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin>
+   </Label>
+</VBox>

@@ -1,5 +1,5 @@
 
-package TempCalculator;
+package SEP1.TempCalculator;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

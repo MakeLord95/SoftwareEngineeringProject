@@ -1,3 +1,5 @@
+package SEP1;
+
 public class Account {
     private double balance;
 

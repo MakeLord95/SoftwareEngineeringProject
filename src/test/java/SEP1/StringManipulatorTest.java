@@ -1,3 +1,6 @@
+package SEP1;
+
+import SEP1.StringManipulator;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

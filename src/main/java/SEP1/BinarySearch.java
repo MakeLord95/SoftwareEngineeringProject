@@ -1,3 +1,5 @@
+package SEP1;
+
 public class BinarySearch {
     public static int search(int[] a, int x) {
         int left = 0;

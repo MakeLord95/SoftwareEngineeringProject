@@ -1,3 +1,6 @@
+package SEP1;
+
+import SEP1.BinarySearch;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

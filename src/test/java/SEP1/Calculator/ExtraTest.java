@@ -1,4 +1,4 @@
-package Calculator;
+package SEP1.Calculator;
 
 import org.junit.jupiter.api.*;
 

@@ -1,4 +1,4 @@
-package TempCalculator;
+package SEP1.TempCalculator;
 
 public class TempCalc {
 

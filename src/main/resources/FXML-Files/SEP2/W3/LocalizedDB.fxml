@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0"
+            prefWidth="350.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="SEP2.W3.Controller.LocalizedDBController">
+    <ChoiceBox fx:id="languageSelectorBox" layoutX="175.0" layoutY="29.0" prefWidth="150.0"
+               AnchorPane.topAnchor="25.0"/>
+    <TextField fx:id="firstNameField" layoutX="175.0" layoutY="75.0" prefHeight="24.0" prefWidth="150.0"
+               promptText="First Name" AnchorPane.topAnchor="70.0"/>
+    <TextField fx:id="lastNameField" layoutX="175.0" layoutY="113.0" prefHeight="24.0" prefWidth="150.0"
+               promptText="Last Name" AnchorPane.topAnchor="115.0"/>
+    <TextField fx:id="emailField" layoutX="173.0" layoutY="157.0" prefHeight="24.0" prefWidth="150.0" promptText="Email"
+               AnchorPane.topAnchor="160.0"/>
+    <Button fx:id="submitButton" layoutX="175.0" layoutY="196.0" mnemonicParsing="false" onAction="#onSavePress"
+            text="Save" AnchorPane.topAnchor="205.0"/>
+    <Label fx:id="selectLanguageLabel" layoutX="43.0" layoutY="29.0" text="Select Language"/>
+    <Label fx:id="firstNameLabel" layoutX="44.0" layoutY="74.0" text="First Name"/>
+    <Label fx:id="lastNameLabel" layoutX="44.0" layoutY="119.0" text="Last Name"/>
+    <Label fx:id="emailLabel" layoutX="44.0" layoutY="164.0" text="Email"/>
+</AnchorPane>

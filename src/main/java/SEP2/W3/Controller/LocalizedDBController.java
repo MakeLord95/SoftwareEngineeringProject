@@ -20,29 +20,95 @@ public class LocalizedDBController {
     public Label lastNameLabel;
     public Label emailLabel;
 
+    private String currentLang = "en";
+
     public void initialize() {
         System.out.println("LocalizedDBController initialized!");
-        languageSelectorBox.getItems().add("English");
-        languageSelectorBox.getItems().add("Japanese");
-        languageSelectorBox.getItems().add("Persian");
 
-        loadLocalization("en", "US");
+        loadLocalization(currentLang, "US");
+
+        languageSelectorBox.setValue("English");
+
+        languageSelectorBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                switch (newValue) {
+                    case "English", "انگلیسی", "英語" -> {
+                        if (!currentLang.equals("en")) {
+                            loadLocalization("en", "US");
+                            currentLang = "en";
+                            languageSelectorBox.setValue("English");
+                        }
+                    }
+                    case "Japanese", "ژاپنی", "日本語" -> {
+                        if (!currentLang.equals("ja")) {
+                            loadLocalization("ja", "JP");
+                            currentLang = "ja";
+                            languageSelectorBox.setValue("日本語");
+                        }
+                    }
+                    case "Farsi", "فارسی", "ペルシア語" -> {
+                        if (!currentLang.equals("fa")) {
+                            loadLocalization("fa", "IR");
+                            currentLang = "fa";
+                            languageSelectorBox.setValue("فارسی");
+                        }
+                    }
+                }
+            }
+        });
+
     }
+
+    public void setLanguageSelectorBox(ResourceBundle bundle) {
+        String selectedItem = languageSelectorBox.getValue();
+
+        languageSelectorBox.getItems().clear();
+
+        languageSelectorBox.getItems().addAll(
+                bundle.getString("english"),
+                bundle.getString("japanese"),
+                bundle.getString("farsi")
+        );
+
+        if (selectedItem != null && !selectedItem.isEmpty()) {
+            languageSelectorBox.setValue(selectedItem);
+        }
+    }
+
 
     public void loadLocalization(String lang, String country) {
         Locale locale = Locale.of(lang, country);
         ResourceBundle bundle = ResourceBundle.getBundle("ResourceBundles.SEP2.W3.messages", locale);
 
         selectLanguageLabel.setText(bundle.getString("selectLanguage"));
+
         firstNameLabel.setText(bundle.getString("firstName"));
+        firstNameField.setPromptText(bundle.getString("firstName"));
+
         lastNameLabel.setText(bundle.getString("lastName"));
+        lastNameField.setPromptText(bundle.getString("lastName"));
+
         emailLabel.setText(bundle.getString("email"));
-        submitButton.setText(bundle.getString("submit"));
+        emailField.setPromptText(bundle.getString("email"));
+
+        submitButton.setText(bundle.getString("saveButton"));
+
+        setLanguageSelectorBox(bundle);
     }
 
     public void onSavePress() {
-        System.out.println(firstNameField.getText());
-        System.out.println(lastNameField.getText());
-        System.out.println(emailField.getText());
+        if (!firstNameField.getText().isEmpty() && !lastNameField.getText().isEmpty() && !emailField.getText().isEmpty()) {
+            if (languageSelectorBox.getValue() != null) {
+                switch (languageSelectorBox.getValue()) {
+                    case "English" -> System.out.println("Saved in English");
+                    case "日本語" -> System.out.println("Saved in Japanese");
+                    case "فارسی" -> System.out.println("Saved in Farsi");
+                }
+            }
+
+            System.out.println(firstNameField.getText());
+            System.out.println(lastNameField.getText());
+            System.out.println(emailField.getText());
+        }
     }
 }

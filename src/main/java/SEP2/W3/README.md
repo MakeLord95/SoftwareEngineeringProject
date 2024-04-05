@@ -1,0 +1,2 @@
+This is my solution to the task. I have created a simple JavaFX application that allows the user to input their first name, last name, and email address. The user can also select a language from a dropdown menu. The application will save the user's information to a database table based on the selected language.
+The code is divided into two classes: LocalizedDBController and LocalizedDBDAO. The LocalizedDBController class is responsible for handling the user interface and user input. The LocalizedDBDAO class is responsible for interacting with the database.

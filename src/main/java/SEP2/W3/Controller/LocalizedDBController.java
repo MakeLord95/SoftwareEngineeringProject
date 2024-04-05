@@ -1,5 +1,6 @@
 package SEP2.W3.Controller;
 
+import SEP2.W3.dao.LocalizedDBDAO;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -64,11 +65,7 @@ public class LocalizedDBController {
 
         languageSelectorBox.getItems().clear();
 
-        languageSelectorBox.getItems().addAll(
-                bundle.getString("english"),
-                bundle.getString("japanese"),
-                bundle.getString("farsi")
-        );
+        languageSelectorBox.getItems().addAll(bundle.getString("english"), bundle.getString("japanese"), bundle.getString("farsi"));
 
         if (selectedItem != null && !selectedItem.isEmpty()) {
             languageSelectorBox.setValue(selectedItem);
@@ -100,9 +97,18 @@ public class LocalizedDBController {
         if (!firstNameField.getText().isEmpty() && !lastNameField.getText().isEmpty() && !emailField.getText().isEmpty()) {
             if (languageSelectorBox.getValue() != null) {
                 switch (languageSelectorBox.getValue()) {
-                    case "English" -> System.out.println("Saved in English");
-                    case "日本語" -> System.out.println("Saved in Japanese");
-                    case "فارسی" -> System.out.println("Saved in Farsi");
+                    case "English" -> {
+                        System.out.println("Saved in English");
+                        LocalizedDBDAO.saveToTable("employee_en", firstNameField.getText(), lastNameField.getText(), emailField.getText());
+                    }
+                    case "日本語" -> {
+                        System.out.println("Saved in Japanese");
+                        LocalizedDBDAO.saveToTable("employee_ja", firstNameField.getText(), lastNameField.getText(), emailField.getText());
+                    }
+                    case "فارسی" -> {
+                        System.out.println("Saved in Farsi");
+                        LocalizedDBDAO.saveToTable("employee_fa", firstNameField.getText(), lastNameField.getText(), emailField.getText());
+                    }
                 }
             }
 
